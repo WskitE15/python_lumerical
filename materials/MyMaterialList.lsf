@@ -1,0 +1,96 @@
+# My material library
+# 2022-Sept-10
+#----------------------------------------------------
+#AIR
+materialname = "AIR";
+newmaterial = addmaterial("Dielectric");
+setmaterial(newmaterial,"name",materialname);
+setmaterial(materialname,"Refractive Index",1);
+setmaterial(materialname,"color",[0.1, 0.1, 0, 1]);
+
+# SILICON (Dispersive & Lossy) from Silicon Photonics by Lucas
+materialname = "Si-Dispersive-Lossy";
+newmaterial = addmaterial("Lorentz");		
+setmaterial(newmaterial,"name",materialname);	
+setmaterial(materialname,"Permittivity",7.98737492);	
+setmaterial(materialname,"Lorentz Linewidth",1e8);
+setmaterial(materialname,"Lorentz Resonance",3.93282466e+15);
+setmaterial(materialname,"Lorentz Permittivity",3.68799143);
+setmaterial(materialname,"color",[0.8, 0, 0, 1]);
+
+#SILICON (Tafelmeier)
+#addpath('C:\LumericalSim\MyScripts\Materials');
+materialdata = readdata("aSi_Tafelmaier.txt");
+size_matrix = size(materialdata);
+N = size_matrix(1);
+wavelength = materialdata(1:N,1)*1e-6;
+material_real_n = materialdata(1:N,2);
+material_im_n = materialdata(1:N,3);
+sampledData = matrix(N,2);
+sampledData(1:N,1) = c/wavelength;
+sampledData(1:N,2) = (material_real_n + 1i*material_im_n)^2;
+materialname = "Si-Tafelmeier";
+newmaterial = addmaterial('Sampled data');		
+setmaterial(newmaterial,'name',materialname);
+setmaterial(materialname,'max coefficients',10);
+setmaterial(materialname,'tolerance',0.001);	
+setmaterial(materialname,'sampled data', sampledData);                               
+setmaterial(materialname,"color",[0.9, 0, 0, 1]);
+
+# Amorphous silicon hydronated ANU-Jena
+materialdata = readdata('aSiH_Jena.txt');
+size_matrix = size(materialdata);
+N = size_matrix(1);
+wavelength = materialdata(1:N,1)*1e-6;
+material_real_n = materialdata(1:N,2);
+material_im_n = materialdata(1:N,3);
+sampledData = matrix(N,2); 
+sampledData(1:N,1) = c/wavelength;
+sampledData(1:N,2) = (material_real_n + 1i*material_im_n)^2;
+materialname = 'aSiH-Jena';
+newmaterial = addmaterial('Sampled data');		
+setmaterial(newmaterial,'name',materialname);
+setmaterial(materialname,'max coefficients',10); 
+setmaterial(materialname,'tolerance',0.001);	
+setmaterial(materialname,'sampled data', sampledData);                              
+setmaterial(materialname,'color',[0.9, 0.2, 0, 1]);
+
+#SiO2 Jena (Non-dispersive & Lossless)
+materialname = 'GlassJena-Nondispersive-Lossless';
+newmaterial = addmaterial("Dielectric");
+setmaterial(newmaterial,"name",materialname);
+setmaterial(materialname,"Permittivity",1.455^2);
+setmaterial(materialname,"color",[0.5, 0.5, 0.5, 0.6]);
+
+#SiO2 Jena (Dispersive & Lossy)
+materialdata = readdata('GlassJena_nk.txt');
+size_matrix = size(materialdata);
+N = size_matrix(1);
+wavelength = materialdata(1:N,1)*1e-9;
+material_real_n = materialdata(1:N,2);
+material_im_n = materialdata(1:N,3);
+sampledData = matrix(N,2); 
+sampledData(1:N,1) = c/wavelength;
+sampledData(1:N,2) = (material_real_n + 1i*material_im_n)^2;
+materialname = 'GlassJena-Dispersive';
+newmaterial = addmaterial('Sampled data');		
+setmaterial(newmaterial,'name',materialname);
+setmaterial(materialname,'max coefficients',10); 
+setmaterial(materialname,'tolerance',0.001);	
+setmaterial(materialname,'sampled data', sampledData);                              
+setmaterial(materialname,'color',[0.5, 0.5, 1, 0.6]);
+
+materialname = "SiO2 - Dispersive & Lossy";
+newmaterial = addmaterial("Lorentz");
+setmaterial(newmaterial,"name",materialname);
+setmaterial(materialname,"Permittivity",2.119881);
+setmaterial(materialname,"Lorentz Linewidth",1e10);
+setmaterial(materialname,"Lorentz Resonance",3.309238e+13);
+setmaterial(materialname,"Lorentz Permittivity", 49.43721);
+setmaterial(materialname,"color",[0.5, 0.5, 0.5, 1]);
+
+materialname = "SiO2 - Non-dispersive & Lossless";
+newmaterial = addmaterial("Dielectric");
+setmaterial(newmaterial,"name",materialname);
+setmaterial(materialname,"Permittivity",1.44^2);
+setmaterial(materialname,"color",[0.5, 0.5, 0.5, 1]);

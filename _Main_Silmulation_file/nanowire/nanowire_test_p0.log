@@ -1,0 +1,123 @@
+Ansys Lumerical 2023 R1 FDTD Solver Version 8.29.3262 (Windows 64bit)
+ expires (month/day/year): 12/31/2035
+using config file: Ansys Licensing set with ANSYSLMD_LICENSE_FILE
+license host: 1055@localhost
+current time: 周四 3月 30 15:46:04 2023
+Running on host: LAPTOP-6VDJ2C6K
+host available memory (GB): 7.207133
+All processes are communicating and ready to proceed to simulation...
+Running fsp file: C:\Program Files\Lumerical\v231\bin\fdtd-engine-msmpi.exe -t 1 -remote -shared-solve-license QU5TWVNfTElDRU5TSU5HX0NPTlRFWFRfREFUQT08QU5TWVNfTElDRU5TSU5HX0NPTlRFWFRfREFUQT48SUQ+MGZkODg1MzgtMDdlNC00N2U2LTgwOTgtZGQzMzQzYWM4NjFlPC9JRD48VFlQRT5IUENfUEFSQU1FVFJJQzwvVFlQRT48TkFNRT5IUEMgUGFyYW1ldHJpYzwvTkFNRT48SEFORExFUj41MTMzM0BMQVBUT1AtNlZESjJDNks8L0hBTkRMRVI+PC9BTlNZU19MSUNFTlNJTkdfQ09OVEVYVF9EQVRBPgo= D:/work/Simulation/python_lumerical/nanowire/nanowire_test.fsp
+number of processors is 4
+processors are distributed as: 2x2x1
+Running 2D Simulation
+Starting meshing
+Simulation size in gridpoints: 141 x 141 x 1
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0.015625 seconds of CPU time
+12528 12528
+Starting meshing
+Simulation size in gridpoints: 141 x 141 x 1
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0.015625 seconds of CPU time
+12720 12720
+finished material properties
+Selected kernel with optimization level: 2 and split-field propagation direction: 0
+Starting meshing
+Simulation size in gridpoints: 141 x 141 x 1
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0 seconds of CPU time
+7344 7344
+Selected kernel with optimization level: 2 and split-field propagation direction: 0
+-----------------------------------------
+Beginning initialization of 2D FDTD Simulation
+  Including TE Simulation
+Starting to add sources to simulation
+
+Adding TFSF source propagating in Y
+snapPEC is a duplicate key.
+Starting meshing
+Simulation size in gridpoints: 3 x 363 x 1
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0 seconds of CPU time
+0 0
+Starting meshing
+Simulation size in gridpoints: 3 x 363 x 1
+Refined 0 mesh cells (0%)
+Completed meshing!
+Meshing complete in 0 seconds of CPU time
+0 0
+finished material properties
+Selected kernel with optimization level: 2 and split-field propagation direction: 0
+Starting to add boundary conditions to simulation
+Adding PML BC
+Adding parallel BC
+Adding PML BC
+Adding parallel BC
+Starting to add monitors to Simulation
+Adding analysis monitor
+Adding analysis monitor
+Adding frequency monitor
+Adding frequency monitor
+Adding frequency monitor
+Adding frequency monitor
+Adding analysis monitor
+Adding frequency monitor
+Adding frequency monitor
+Adding frequency monitor
+Adding frequency monitor
+Adding time monitor
+Adding frequency monitor
+Finished initialization of 2D Simulation
+-----------------------------------------
+All processes are communicating and ready to proceed to simulation...
+Starting 171301 total iterations
+0.0280208% complete. Elapsed simulation time: 5.60416e-17 secs. Max time remaining: 2 mins, 7 secs. Auto Shutoff: 1
+1.18621% complete. Elapsed simulation time: 2.37243e-15 secs. Max time remaining: 2 mins, 14 secs. Auto Shutoff: 1
+2.38177% complete. Elapsed simulation time: 4.76354e-15 secs. Max time remaining: 2 mins, 10 secs. Auto Shutoff: 1
+3.57732% complete. Elapsed simulation time: 7.15465e-15 secs. Max time remaining: 2 mins, 22 secs. Auto Shutoff: 1
+4.77288% complete. Elapsed simulation time: 9.54576e-15 secs. Max time remaining: 2 mins, 41 secs. Auto Shutoff: 1
+5.96843% complete. Elapsed simulation time: 1.19369e-14 secs. Max time remaining: 2 mins, 44 secs. Auto Shutoff: 0.0923455
+7.16399% complete. Elapsed simulation time: 1.4328e-14 secs. Max time remaining: 2 mins, 43 secs. Auto Shutoff: 0.0303436
+8.35954% complete. Elapsed simulation time: 1.67191e-14 secs. Max time remaining: 2 mins, 41 secs. Auto Shutoff: 0.00679754
+9.5551% complete. Elapsed simulation time: 1.91102e-14 secs. Max time remaining: 2 mins, 47 secs. Auto Shutoff: 0.00191385
+10.7507% complete. Elapsed simulation time: 2.15013e-14 secs. Max time remaining: 2 mins, 54 secs. Auto Shutoff: 0.00062336
+11.9462% complete. Elapsed simulation time: 2.38924e-14 secs. Max time remaining: 2 mins, 51 secs. Auto Shutoff: 0.000183994
+13.7395% complete. Elapsed simulation time: 2.74791e-14 secs. Max time remaining: 2 mins, 44 secs. Auto Shutoff: 6.67036e-05
+15.5329% complete. Elapsed simulation time: 3.10657e-14 secs. Max time remaining: 2 mins, 38 secs. Auto Shutoff: 1.59837e-05
+100% complete. Max time remaining: 0 mins, 0 secs. Auto Shutoff: 7.86873e-06
+Early termination of simulation, the autoshutoff criteria are satisfied.
+Completed 26615 iterations, or 3.107391e-14s of Simulation Time
+Process 0 starting to collect data
+    collecting TM monitor data
+    collecting TE monitor data
+    collecting TM source data
+    collecting TE source data
+snapPEC is a duplicate key.
+Starting meshing
+Simulation size in gridpoints: 3 x 363 x 1
+Refined 0 mesh cells (0.000000e+00%)
+Completed meshing!
+Meshing complete in 0.000000e+00 seconds of CPU time
+0 0
+Starting meshing
+Simulation size in gridpoints: 3 x 363 x 1
+Refined 0 mesh cells (0.000000e+00%)
+Completed meshing!
+Meshing complete in 0.000000e+00 seconds of CPU time
+0 0
+finished material properties
+Selected kernel with optimization level: 0 and split-field propagation direction: 0
+Finished collecting data
+Simulation completed successfully at: 周四 3月 30 15:46:33 2023
+Overall wall time measurements in seconds: 30.1697
+    time to mesh and initialize: 0.0826516
+    time to run FDTD simulation: 29.1249
+    time to checkpoint simulation: 3e-07
+    time to finalize data and save to files: 0.0385809
+    miscellaneous time: 0.923611
+    FDTD solver speed on process 0: 18.1677 Mnodes/s
+    total FDTD solver speed on 4 processes: 72.671 Mnodes/s

@@ -1,0 +1,72 @@
+###########################################################################
+# Scriptfile: mie_theory_2d.lsf
+#
+# Description:
+# This script analyses the results of mie_theory_2d.fsp
+#
+# Copyright 2009, Lumerical Solutions, Inc.
+###########################################################################
+
+do_far_field = 1;         # set 0 to not perform this test, 1 to perform the test
+do_cross_sections = 0;    # set 0 to not perform this test, 1 to perform the test
+
+select("scat");
+set("do far field",do_far_field);
+runanalysis;
+
+###########################################################################
+# Far field projections
+if (do_far_field) {
+
+  E2_far = getdata("scat","E2_far");
+  theta = getdata("scat","theta");
+  
+  for(j=1:2){ # the frequency points
+      E2_far(j,1:length(theta)) = E2_far(j,1:length(theta))/E2_far(j,1);
+  }
+
+  #load analytic result from file, there are 1000 points
+  mie_theory_data = readdata("mie_cylinder.txt");
+  theta_analytic = mie_theory_data(1,1:1000);
+
+  # plot data for the 2 wavelengths
+  E2_analytic_1=interp(mie_theory_data(2,1:1000),theta_analytic,theta);
+  E2_analytic_2=interp(mie_theory_data(3,1:1000),theta_analytic,theta);
+  plot(theta,E2_far(1,1:length(theta)),E2_analytic_1,
+             E2_far(2,1:length(theta)),E2_analytic_2,
+             "angle (degrees)","scattered intensity (log scale)",
+             "scattered intensity (log scale)","logplot");
+  legend("FDTD 1 micron","Analytic 1 micron","FDTD 2 microns","Analytic 2 microns");
+  # polar(theta*pi/180,E2_far(1,1:length(theta)),E2_analytic_1, E2_far(2,1:length(theta)),E2_analytic_2);
+  # legend("FDTD 1 micron","Analytic 1 micron","FDTD 2 microns","Analytic 2 microns");
+}
+
+
+
+
+###########################################################################
+# Cross sections
+if (do_cross_sections) {
+  ?"  Calculating scattering and absorption cross sections";
+
+  # collect data on wavelength range
+  f=getdata("scat","f");      # get freqency data
+  lambda=c/f;                 # convert to wavelength
+  r = getnamed("circle","radius"); # the radius of the mie particle
+
+  # Calculate scattering cross-section
+  sigmascat = getdata("scat","sigma");
+  Qscat = sigmascat/(2*r);
+
+  # Calculate absorption cross-section
+  sigmaabs = -getdata("total","sigma");
+  Qabs=sigmaabs/(2*r);
+
+  # calculate the size parameter
+  size_parameter = (2*r)/lambda;
+
+  # Plot results
+  plot(size_parameter,Qscat, Qabs ,"size parameter (d/lambda)","Mie efficiency","cross section");
+  legend("Scattering","Absorption");
+}
+
